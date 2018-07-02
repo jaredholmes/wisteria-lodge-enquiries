@@ -1,0 +1,13 @@
+.form-intro {
+  margin-top: 1.5em; }
+
+form .col {
+  margin-top: 3em;
+  height: 4em; }
+  form .col ul {
+    margin-top: 0; }
+    form .col ul li {
+      color: red; }
+
+.input-field {
+  left: 5em; }

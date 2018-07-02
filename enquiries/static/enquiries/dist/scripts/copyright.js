@@ -1,0 +1,1 @@
+var copyrightYear=function(){var e=(new Date).getFullYear();document.getElementById("year").innerHTML=e}();

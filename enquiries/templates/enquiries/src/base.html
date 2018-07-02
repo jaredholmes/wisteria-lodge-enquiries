@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block analytics %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118022197-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-118022197-1');
+  </script>
+  {% endblock %}
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% block meta-description %}
+  <meta name="description" content="Wisteria Lodge is a cosy yet sophisticated cottage in North-West Johannesburg, South Africa.">
+  {% endblock %}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'enquiries/dist/stylesheets/wl-styles.css' %}">
+
+  {% block extra-links %}
+  {% endblock %}
+  <title>{% block title %}{% endblock %} | Wisteria Lodge</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper tan">
+      <a href="http://wisterialodge.co.za/" class="brand-logo center cursive">Wisteria Lodge</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile"><i class="fas fa-ellipsis-v"></i></a>
+      <ul class="right hide-on-med-and-down">
+
+        {% block nav-which-active %}
+        <li><a href="http://wisterialodge.co.za/" class="nav-active">Home</a></li>
+        <li><a href="http://wisterialodge.co.za/enquire">Enquire</a></li>
+        <li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
+        {% endblock %}
+
+      </ul>
+      <ul class="sidenav" id="nav-mobile">
+
+        {% block sidenav-which-active %}
+        <li><a href="http://wisterialodge.co.za/" class="nav-active">Home</a></li>
+        <li><a href="http://wisterialodge.co.za/enquire">Enquire</a></li>
+        <li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
+        {% endblock %}
+
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    {% block main %}
+    {% endblock %}
+  </main>
+
+  <footer class="grey lighten-3" id="footer">
+    {% block footer %}
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col s6 left">
+            <h2 class="footer-link hwd"><a href="http://www.jaredholmes.com/" class="teal-text text-darken-2" target="_blank">Web design by Holmes Web Development</a></h2>
+          </div>
+          <div class="col s6 right-align">
+            <span>&copy; Wisteria Lodge <span id="year"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="{% static 'enquiries/dist/scripts/copyright.js' %}" charset="utf-8"></script>
+  <script src="{% static 'enquiries/dist/scripts/mat_init.js' %}" charset="utf-8"></script>
+
+  {% block extra-scripts %}
+  {% endblock %}
+</body>
+</html>

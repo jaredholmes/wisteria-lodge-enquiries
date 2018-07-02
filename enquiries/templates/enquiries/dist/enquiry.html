@@ -1,0 +1,76 @@
+{% extends "enquiries/dist/base.html" %}
+{% load static %}
+
+{% block meta-description %}
+<meta name="description" content="Make an enquiry | Wisteria Lodge is a cosy yet sophisticated cottage in North-West Johannesburg, South Africa.">
+{% endblock %}
+
+{% block extra-links %}
+<link rel="stylesheet" href="{% static 'enquiries/dist/stylesheets/styles.css' %}">
+{% endblock %}
+
+{% block title %}Make an Enquiry{% endblock %}
+
+{% block nav-which-active %}
+<li><a href="http://wisterialodge.co.za/">Home</a></li>
+<li><a href="http://wisterialodge.co.za/enquire" class="nav-active">Enquire</a></li>
+<li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
+{% endblock %}
+
+{% block sidenav-which-active %}
+<li><a href="http://wisterialodge.co.za/">Home</a></li>
+<li><a href="http://wisterialodge.co.za/enquire" class="nav-active">Enquire</a></li>
+<li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
+{% endblock %}
+
+{% block main %}
+
+
+  <div class="content container row">
+    <div class="col s12">
+      <h4>Make an Enquiry</h4>
+      <p class="form-intro">Enter the details of your desired stay with us, and we'll contact you with the availability status and a relevant quote.</p>
+      <p class="form-intro">Please note that stays may be a minimum of two days.</p>
+    </div>
+
+
+    <br>
+    <br>
+    <div class="col s12 form-container">
+      <form class="" action="" method="post">
+        {% csrf_token %}
+        <div class="input-field col s12 m5">
+          <label for="id_name" class="grey-text text-darken-3">Your name</label>
+          {{ form.name }}
+          {{ form.errors.name }}
+        </div>
+        <div class="input-field col s12 m5 offset-m2">
+          <label for="id_email" class="grey-text text-darken-3">Your email address</label>
+            {{ form.email }}
+        </div>
+        <div class="input-field col s12 m5">
+          <label for="id_enq_date_start" class="grey-text text-darken-3">Check-in date</label>
+            {{ form.enq_date_start }}
+            {{ form.errors.enq_date_start }}
+        </div>
+        <div class="input-field col s12 m5 offset-m2">
+          <label for="id_enq_date_end" class="grey-text text-darken-3">Check-out date</label>
+            {{ form.enq_date_end }}
+            {{ form.errors.enq_date_end }}
+        </div>
+        <div class="input-field col s12 m5">
+            {{ form.adults }}
+            <label class="grey-text text-darken-3">Number of adults</label>
+        </div>
+        <div class="input-field col s12 m5 offset-m2">
+            {{ form.children }}
+            <label class="grey-text text-darken-3">Number of children</label>
+        </div>
+        <div class="col s12 right-align">
+          <button type="submit" name="" class="btn blue-grey darken-2 white-text">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
