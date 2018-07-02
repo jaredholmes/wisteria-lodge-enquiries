@@ -37,7 +37,7 @@ def index(request):
                 subject,
                 message,
                 'jar3dh0lm3s@gmail.com',
-                ['jared@colgro.com'],
+                ['wisterialodge11@gmail.com'],
                 fail_silently=True,
             )
             return render(request, 'enquiries/dist/enquiry-success.html', {'form': form})

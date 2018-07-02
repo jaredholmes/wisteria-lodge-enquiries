@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+import psycopg2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_mouc-_7^f!%r8%9a+y%fc84&86q-bh&p7rmy$*d0-y57j-neg'
+SECRET_KEY = os.environ.get('EMIAL_HOST_USER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,8 +31,8 @@ DEBUG = True
 # Email details
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'jar3dh0lm3s@gmail.com'
-EMAIL_HOST_PASSWORD = 'seveneleven'
+EMAIL_HOST_USER = os.environ.get('EMIAL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMIAL_HOST_PASSWORD')
 EMAIL_PORT = 587
 
 ALLOWED_HOSTS = []
@@ -83,9 +86,10 @@ WSGI_APPLICATION = 'wl.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wisteria',
-        'USER': 'jaredholmes',
-        'PASSWORD': '',
+        'NAME': 'postgresql-lively-55488',
+        'USER': 'sugrgorxdibxoz',
+        'PASSWORD': 'a26bbc046c755a60f2a3672daa8dc060e5f5bd7a35addf957a3d54a09891d5df',
+        'HOST': 'ec2-54-235-196-250.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -127,4 +131,10 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
