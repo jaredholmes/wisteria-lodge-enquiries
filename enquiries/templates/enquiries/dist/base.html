@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  {% block analytics %}
+  
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118022197-1"></script>
   <script>
@@ -14,7 +13,6 @@
 
     gtag('config', 'UA-118022197-1');
   </script>
-  {% endblock %}
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +25,6 @@
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'enquiries/dist/stylesheets/wl-styles.css' %}">
 
   {% block extra-links %}
@@ -43,7 +40,7 @@
 
         {% block nav-which-active %}
         <li><a href="http://wisterialodge.co.za/" class="nav-active">Home</a></li>
-        <li><a href="https://wisteria-lodge.herokuapp.com/">Enquire</a></li>
+        <li><a href="http://wisterialodge.co.za/enquire">Enquire</a></li>
         <li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
         {% endblock %}
 
@@ -52,7 +49,7 @@
 
         {% block sidenav-which-active %}
         <li><a href="http://wisterialodge.co.za/" class="nav-active">Home</a></li>
-        <li><a href="https://wisteria-lodge.herokuapp.com/">Enquire</a></li>
+        <li><a href="http://wisterialodge.co.za/enquire">Enquire</a></li>
         <li><a href="http://wisterialodge.co.za/contact.html">Contact Us</a></li>
         {% endblock %}
 
